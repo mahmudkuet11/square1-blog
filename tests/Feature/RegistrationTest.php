@@ -14,7 +14,8 @@ class RegistrationTest extends TestCase
     /**
      * @test
      */
-    public function it_shows_the_registration_form(){
+    public function it_shows_the_registration_form()
+    {
         $response = $this->get('/register');
 
         $response->assertOk()
@@ -27,7 +28,8 @@ class RegistrationTest extends TestCase
     /**
      * @test
      */
-    public function it_stores_data_after_registration(){
+    public function it_stores_data_after_registration()
+    {
         $response = $this->post("/register", [
             'name' => "John Doe",
             'email' => 'john@example.com',
@@ -44,7 +46,8 @@ class RegistrationTest extends TestCase
     /**
      * @test
      */
-    public function it_throws_error_for_invalid_data(){
+    public function it_throws_error_for_invalid_data()
+    {
         $response = $this->post("/register", [
             'name' => "",
             'email' => 'invalid_email',
@@ -58,7 +61,8 @@ class RegistrationTest extends TestCase
     /**
      * @test
      */
-    public function it_ensures_that_the_email_address_is_unique(){
+    public function it_ensures_that_the_email_address_is_unique()
+    {
         $existingUser = User::factory([
             'email' => 'john@example.com',
         ])->create();
