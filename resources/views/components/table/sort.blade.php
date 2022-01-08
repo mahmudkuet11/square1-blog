@@ -1,0 +1,1 @@
+<th class="sort {{ $sortIconClass() }}"><a href="{{ $url() }}">{{ $title }}</a></th>
