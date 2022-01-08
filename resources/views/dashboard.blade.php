@@ -5,7 +5,12 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('All Posts') }}</div>
+                <div class="card-header">
+                    <div class="float-left">{{ __('All Posts') }}</div>
+                    <div class="float-right">
+                        <a href="{{ route('posts.create') }}" class="btn btn-primary btn-sm">Create New Post</a>
+                    </div>
+                </div>
 
                 <div class="card-body table-responsive">
                     @if (session('status'))

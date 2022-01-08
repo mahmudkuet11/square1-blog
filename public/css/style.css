@@ -23,3 +23,11 @@ table thead th.sort-asc{
 table thead th.sort-desc{
     background-image: url('/images/sort_desc.png');
 }
+
+.float-left{
+    float: left;
+}
+
+.float-right{
+    float: right;
+}
