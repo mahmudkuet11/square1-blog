@@ -76,4 +76,13 @@ class RegistrationTest extends TestCase
 
         $response->assertSessionHasErrors('email');
     }
+
+    /**
+     * @test
+     */
+    public function only_guest_can_access_the_registration_page()
+    {
+        $this->login();
+        $this->get('/register')->assertRedirect('/dashboard');
+    }
 }
