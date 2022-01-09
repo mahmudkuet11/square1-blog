@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Contracts\BlogPlatform;
+use App\Services\XBlog;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 
