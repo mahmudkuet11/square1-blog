@@ -25,8 +25,8 @@ class DashboardTest extends TestCase
 
         $response = $this->get('/dashboard');
         $response->assertSeeTextInOrder([
-            $johnPosts->get(1)->title, $johnPosts->get(1)->published_at->toFormattedDateString(),
-            $johnPosts->get(0)->title, $johnPosts->get(0)->published_at->toFormattedDateString(),
+            $johnPosts->get(1)->title, $johnPosts->get(1)->published_at->toDayDateTimeString(),
+            $johnPosts->get(0)->title, $johnPosts->get(0)->published_at->toDayDateTimeString(),
         ]);
 
         $response->assertDontSeeText($janePosts->get(0)->title);

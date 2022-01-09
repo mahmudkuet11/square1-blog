@@ -33,7 +33,7 @@
                                 <tr>
                                     <td>{{ ($posts->currentPage() - 1) * $posts->perPage() + $index + 1 }}</td>
                                     <td>{{ $post->title }}</td>
-                                    <td>{{ $post->published_at->toFormattedDateString() }}</td>
+                                    <td>{{ $post->published_at->toDayDateTimeString() }}</td>
                                 </tr>
                             @empty
                                 <tr>

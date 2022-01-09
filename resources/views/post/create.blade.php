@@ -34,7 +34,7 @@
 
                             <div class="form-group mt-4">
                                 <label for="published_at" class="form-label">Publication Date</label>
-                                <input name="published_at" type="date" class="form-control" id="published_at" value="{{ old('published_at') }}">
+                                <input name="published_at" type="datetime-local" class="form-control" id="published_at" value="{{ old('published_at') }}">
                                 @error('published_at')<small class="text-danger">{{ $message }}</small>@enderror
                             </div>
 

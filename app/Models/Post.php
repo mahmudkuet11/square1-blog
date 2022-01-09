@@ -18,7 +18,7 @@ class Post extends Model
     ];
 
     protected $casts = [
-        'published_at' => 'date'
+        'published_at' => 'datetime'
     ];
 
     public function scopeSort(Builder $query)

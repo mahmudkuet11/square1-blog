@@ -18,7 +18,7 @@ class CreatePostsTable extends Migration
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->string('title');
             $table->text('description');
-            $table->date('published_at')->index();
+            $table->timestamp('published_at')->index();
             $table->timestamps();
         });
     }

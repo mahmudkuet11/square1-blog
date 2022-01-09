@@ -31,7 +31,7 @@ class PostTest extends TestCase
 
         $title = $this->faker->sentence();
         $description = $this->faker->paragraph();
-        $published_at = today();
+        $published_at = now();
         $this->post('/posts', [
             'title' => $title,
             'description' => $description,
