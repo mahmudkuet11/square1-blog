@@ -20,6 +20,8 @@ class CreatePostsTable extends Migration
             $table->text('description');
             $table->timestamp('published_at')->index();
             $table->timestamps();
+
+            $table->index(['user_id', 'published_at']);
         });
     }
 

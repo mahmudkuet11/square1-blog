@@ -23,14 +23,14 @@
                 <ul class="navbar-nav">
                     @if(auth()->check())
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('dashboard') }}">Dashboard</a>
+                        <a class="nav-link" href="{{ route('dashboard') }}" dusk="dashboard_menu_link">Dashboard</a>
                     </li>
                     @else
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">Login</a>
+                        <a class="nav-link" href="{{ route('login') }}" dusk="login_menu_link">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('register') }}">Register</a>
+                        <a class="nav-link" href="{{ route('register') }}" dusk="register_menu_link">Register</a>
                     </li>
                     @endif
                 </ul>
@@ -63,7 +63,7 @@
                 </div>
                 @endforelse
 
-                <div class="mt-4">
+                <div class="mt-4" style="padding-bottom: 100px;">
                     {!! $posts->links() !!}
                 </div>
 

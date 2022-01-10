@@ -1,1 +1,1 @@
-<th class="sort {{ $sortIconClass() }}"><a href="{{ $url() }}">{{ $title }}</a></th>
+<th class="sort {{ $sortIconClass() }}" id="sort-col-{{ $key }}"><a href="{{ $url() }}">{{ $title }}</a></th>

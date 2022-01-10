@@ -8,7 +8,7 @@
                 <div class="card-header">
                     <div class="float-left">{{ __('All Posts') }}</div>
                     <div class="float-right">
-                        <a href="{{ route('posts.create') }}" class="btn btn-primary btn-sm">Create New Post</a>
+                        <a href="{{ route('posts.create') }}" class="btn btn-primary btn-sm" dusk="create_new_post_btn">Create New Post</a>
                     </div>
                 </div>
 
