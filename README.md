@@ -1,66 +1,109 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# System Requirements
+* php7.4
+* sqlite driver - `sudo apt install php7.4-sqlite`
+* Other regular requirements to run Laravel 8.x
+# Installation
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+To setup the project please follow the steps below
 
-## About Laravel
+## 1. Clone the repo
+```bash
+git clone https://github.com/mahmudkuet11/square1-blog.git
+```
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 2. Copy the env files
+```bash
+cp .env.example .env
+cp .env.example .env.dusk.local
+```
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 3. Make necessary changes to the following environment variables
+File: `.env`
+```bash
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=square1_blog
+DB_USERNAME=root
+DB_PASSWORD=root
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+CACHE_DRIVER=redis
 
-## Learning Laravel
+REDIS_HOST=127.0.0.1
+REDIS_PASSWORD=null
+REDIS_PORT=6379
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+ADMIN_USER_PASSWORD="admin"
+```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+> Cache driver should be `redis` and redis should have been installed on host machine
 
-## Laravel Sponsors
+## 4. Install dependencies
+```bash
+composer install --prefer-dist
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+## 5. Generate application key
+```bash
+php artisan key:generate
+```
 
-### Premium Partners
+## 6. Migration and Seeding
+```bash
+php artisan migrate
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[CMS Max](https://www.cmsmax.com/)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-- **[Romega Software](https://romegasoftware.com)**
+# To create the designated admin user
+php artisan db:seed --class=InitialDataSeeder
 
-## Contributing
+# (Optional) If you want to seed some dummy data
+php artisan db:seed
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## 7. Run the server
+```bash
+php artisan serve
+```
 
-## Code of Conduct
+>Now visit [http://localhost:8000](http://localhost:8000) to view the application
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+# Run Tests
 
-## Security Vulnerabilities
+## Integration test
+Please make sure you have the `sqlite` driver is installed on your machine. Because the testing process uses sqlite as in memory database
+```bash
+php artisan test
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Browser test (Laravel Dusk)
 
-## License
+Chrome and chrome-driver should have been installed on your machine. To install the proper version of chrome-driver run the following command
+```bash
+php artisan dusk:chrome-driver --detect
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+chmod -R 0755 vendor/laravel/dusk/bin/
+```
+
+Make sure you have copied the `.env.dusk.local` file mentioned in **step 2**. Also create another database and update the database related env variables  to run the dusk tests.
+
+File: `.env.dusk.local`
+```bash
+APP_URL=http://localhost:8000
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=square1_blog_test
+DB_USERNAME=root
+DB_PASSWORD=root
+```
+
+To run the tests
+```bash
+php artisan dusk
+```
+
+Here are the badges of Github Actions
+
+![Integration Test](https://github.com/mahmudkuet11/square1-blog/actions/workflows/phpunit_ci.yml/badge.svg)
+
+![Dusk Test](https://github.com/mahmudkuet11/square1-blog/actions/workflows/dusk_ci.yml/badge.svg)
