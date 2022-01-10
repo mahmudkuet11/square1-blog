@@ -32,6 +32,6 @@ class PostController extends Controller
             'published_at' => $request->published_at,
         ]);
 
-        return redirect()->route('dashboard')->with('status', 'Post is saved successfully!');
+        return redirect()->route('dashboard')->with('status', __('Post is saved successfully!'));
     }
 }

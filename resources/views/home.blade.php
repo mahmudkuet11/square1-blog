@@ -23,14 +23,14 @@
                 <ul class="navbar-nav">
                     @if(auth()->check())
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('dashboard') }}" dusk="dashboard_menu_link">Dashboard</a>
+                        <a class="nav-link" href="{{ route('dashboard') }}" dusk="dashboard_menu_link">{{ __('Dashboard') }}</a>
                     </li>
                     @else
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}" dusk="login_menu_link">Login</a>
+                        <a class="nav-link" href="{{ route('login') }}" dusk="login_menu_link">{{ __('Login') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('register') }}" dusk="register_menu_link">Register</a>
+                        <a class="nav-link" href="{{ route('register') }}" dusk="register_menu_link">{{ __('Register') }}</a>
                     </li>
                     @endif
                 </ul>
@@ -47,7 +47,7 @@
                         <div class="card-body">
                             <h1>{{ $post->title }}</h1>
                             <p>
-                                By <strong>{{ $post->user->name }}</strong> / {{ $post->published_at->toDayDateTimeString() }}
+                                {{ __('By') }} <strong>{{ $post->user->name }}</strong> / {{ $post->published_at->toDayDateTimeString() }}
                             </p>
                             <p>{{ $post->description }}</p>
                         </div>
@@ -57,7 +57,7 @@
                 <div class="post mt-4">
                     <div class="card">
                         <div class="card-body">
-                            <h1>No post found!</h1>
+                            <h1>{{ __('No post found!') }}</h1>
                         </div>
                     </div>
                 </div>

@@ -33,7 +33,7 @@ class PostStoreRequest extends FormRequest
     public function attributes()
     {
         return [
-            'published_at' => 'publication date'
+            'published_at' => __('publication date')
         ];
     }
 }

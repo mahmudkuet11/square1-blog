@@ -8,7 +8,7 @@
                 <div class="card-header">
                     <div class="float-left">{{ __('All Posts') }}</div>
                     <div class="float-right">
-                        <a href="{{ route('posts.create') }}" class="btn btn-primary btn-sm" dusk="create_new_post_btn">Create New Post</a>
+                        <a href="{{ route('posts.create') }}" class="btn btn-primary btn-sm" dusk="create_new_post_btn">{{ __('Create New Post') }}</a>
                     </div>
                 </div>
 
@@ -22,9 +22,9 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th>SL</th>
-                                <th>Title</th>
-                                <x-table.sort title="Publication Date" key="published_at"></x-table.sort>
+                                <th>{{ __('SL') }}</th>
+                                <th>{{ __('Title') }}</th>
+                                <x-table.sort title="{{ __('Publication Date') }}" key="published_at"></x-table.sort>
                             </tr>
                         </thead>
 
@@ -37,7 +37,7 @@
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="3">No post found!</td>
+                                    <td colspan="3">{{ __('No post found!') }}</td>
                                 </tr>
                             @endforelse
                         </tbody>

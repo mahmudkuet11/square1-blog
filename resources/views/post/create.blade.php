@@ -21,24 +21,24 @@
                         @csrf
                         <fieldset>
                             <div class="form-group">
-                                <label for="title" class="form-label">Title</label>
+                                <label for="title" class="form-label">{{ __('Title') }}</label>
                                 <input name="title" type="text" class="form-control" id="title" value="{{ old('title') }}">
                                 @error('title')<small class="text-danger">{{ $message }}</small>@enderror
                             </div>
 
                             <div class="form-group mt-4">
-                                <label for="description" class="form-label">Description</label>
+                                <label for="description" class="form-label">{{ __('Description') }}</label>
                                 <textarea name="description" id="description" rows="5" class="form-control">{{ old('description') }}</textarea>
                                 @error('description')<small class="text-danger">{{ $message }}</small>@enderror
                             </div>
 
                             <div class="form-group mt-4">
-                                <label for="published_at" class="form-label">Publication Date</label>
+                                <label for="published_at" class="form-label">{{ __('Publication Date') }}</label>
                                 <input name="published_at" type="datetime-local" class="form-control" id="published_at" value="{{ old('published_at') }}">
                                 @error('published_at')<small class="text-danger">{{ $message }}</small>@enderror
                             </div>
 
-                            <button type="submit" class="btn btn-primary mt-4">Submit</button>
+                            <button type="submit" class="btn btn-primary mt-4">{{ __('Submit') }}</button>
                         </fieldset>
                     </form>
                 </div>
