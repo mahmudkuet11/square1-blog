@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $users = User::factory()->count(10)->create();
-        $users->each(function($user){
+        $users->each(function ($user) {
             Post::factory()->count(20)->create([
                 'user_id' => $user->id
             ]);

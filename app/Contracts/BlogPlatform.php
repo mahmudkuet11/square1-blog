@@ -2,7 +2,8 @@
 
 namespace App\Contracts;
 
-interface BlogPlatform{
+interface BlogPlatform
+{
     /**
      * @return array
      */

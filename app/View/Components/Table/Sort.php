@@ -41,7 +41,7 @@ class Sort extends Component
 
     public function sortIconClass()
     {
-        if(request()->get('sort') !== $this->key){
+        if (request()->get('sort') !== $this->key) {
             return 'sort-inactive';
         }
 

@@ -14,9 +14,9 @@
 
                 <div class="card-body table-responsive">
                     @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
+                    <div class="alert alert-success" role="alert">
+                        {{ session('status') }}
+                    </div>
                     @endif
 
                     <table class="table table-striped">
@@ -30,15 +30,15 @@
 
                         <tbody>
                             @forelse ($posts as $index => $post)
-                                <tr>
-                                    <td>{{ ($posts->currentPage() - 1) * $posts->perPage() + $index + 1 }}</td>
-                                    <td>{{ $post->title }}</td>
-                                    <td>{{ $post->published_at->toDayDateTimeString() }}</td>
-                                </tr>
+                            <tr>
+                                <td>{{ ($posts->currentPage() - 1) * $posts->perPage() + $index + 1 }}</td>
+                                <td>{{ $post->title }}</td>
+                                <td>{{ $post->published_at->toDayDateTimeString() }}</td>
+                            </tr>
                             @empty
-                                <tr>
-                                    <td colspan="3">{{ __('No post found!') }}</td>
-                                </tr>
+                            <tr>
+                                <td colspan="3">{{ __('No post found!') }}</td>
+                            </tr>
                             @endforelse
                         </tbody>
                     </table>

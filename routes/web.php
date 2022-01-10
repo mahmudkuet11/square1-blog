@@ -21,8 +21,8 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Auth::routes();
 
-Route::group(['middleware' => ['auth']], function(){
+Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    
+
     Route::resource('posts', PostController::class)->only(['create', 'store']);
 });

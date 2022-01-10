@@ -9,13 +9,13 @@ use Tests\DuskTestCase;
 class RegistrationTest extends DuskTestCase
 {
     use DatabaseMigrations;
-    
+
     /**
      * @test
      */
     public function user_can_register()
     {
-        $this->browse(function(Browser $browser){
+        $this->browse(function (Browser $browser) {
             $browser->visit('/register')
                 ->type('name', 'John Doe')
                 ->type('email', 'john@example.com')
