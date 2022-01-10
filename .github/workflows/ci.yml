@@ -2,7 +2,7 @@ on: push
 name: CI
 jobs:
   phpunit:
-    runs-on: ubuntu:18.04
+    runs-on: ubuntu-20.04
     container:
       image: kirschbaumdevelopment/laravel-test-runner:7.3
  
