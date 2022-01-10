@@ -53,7 +53,8 @@ class HomePageTest extends DuskTestCase
         $user = User::factory()->create();
 
         $this->browse(function (Browser $browser) use ($user) {
-            $browser->visit('/')
+            $browser->logout()
+                ->visit('/')
                 ->assertSee("Login")
                 ->assertSee("Register")
                 ->click('@login_menu_link')
