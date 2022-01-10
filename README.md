@@ -1,5 +1,5 @@
 # System Requirements
-* php7.4
+* Minimum php7.4
 * sqlite driver - `sudo apt install php7.4-sqlite`
 * Other regular requirements to run Laravel 8.x
 # Installation
@@ -65,6 +65,18 @@ php artisan serve
 ```
 
 >Now visit [http://localhost:8000](http://localhost:8000) to view the application
+
+# Import Blog Posts
+To import blog posts from the another blogging platform add the following CRON entry. This will automatically import new posts every 15 minutes.
+
+```bash
+* * * * * cd /path-to-your-project && php artisan schedule:run >> /dev/null 2>&1
+```
+
+Or just to test the functionality quickly you can run the following artisan command. The command will simulate the exact functionality
+```bash
+php artisan blog:import
+```
 
 # Run Tests
 
